@@ -628,10 +628,31 @@
             
             .custom-text-column {
                 max-width: calc(100%); /* Adjust the width for the text column */
-                padding-left: 40px; /* Add padding to the left side of the text column */
+                padding-left: 80px; /* Add padding to the left side of the text column */
             }
         </style>
         <style>
+        /* Define a CSS class to control image size */
+        .custom-image {
+            max-width: 100%; /* Set the maximum width to 100% of the container */
+            height: auto; /* Maintain the aspect ratio */
+        }
+
+        /* Use a media query to limit the image size on smaller screens */
+        @media (max-width: 768px) {
+            .custom-image {
+                max-width: 50%; /* Adjust this value as needed for smaller screens */
+            }
+        }
+
+        /* Use another media query to adjust the image size for medium-sized screens */
+        @media (max-width: 1024px) {
+            .custom-image {
+                max-width: 75%; /* Adjust this value as needed for medium-sized screens */
+            }
+        }
+        </style>    
+    <style>
             .gatsby-image-wrapper {
                 position: relative;
                 overflow: hidden
@@ -770,7 +791,7 @@
                             <div class="md:container md:mx-auto">
                                 <div class="grid grid-cols-4 gap-x-4 pb-10 text-sm">
                                     <div class="col-span-1 custom-image-column">
-                                        <img src="docs/ai.png" alt="AI-generated visualizations of car-free American cities">
+                                        <img src="docs/ai.png" alt="AI-generated visualizations of car-free American cities" class="custom-image">
                                     </div>
                                     <div class="col-span-3 custom-text-column">
                                         <div class="pb-1">
@@ -793,7 +814,7 @@
                             <div class="md:container md:mx-auto">
                                 <div class="grid grid-cols-4 gap-x-4 pb-10 text-sm">
                                     <div class="col-span-1 custom-image-column">
-                                        <img src="docs/water.png" alt="">
+                                        <img src="docs/water.png" alt="" class="custom-image">
                                     </div>
                                     <div class="col-span-3 custom-text-column">
                                         <div class="pb-1">
@@ -820,7 +841,7 @@
                                 <div class="md:container md:mx-auto">
                                 <div class="grid grid-cols-4 gap-x-4 pb-10 text-sm">
                                     <div class="col-span-1 custom-image-column">
-                                        <img src="docs/multiple.png" alt="">
+                                        <img src="docs/multiple.png" alt="" class="custom-image">
                                     </div>
                                     <div class="col-span-3 custom-text-column">
                                         <div class="pb-1">
@@ -847,7 +868,7 @@
                             <div class="md:container md:mx-auto">
                                 <div class="grid grid-cols-4 gap-x-4 pb-10 text-sm">
                                     <div class="col-span-1 custom-image-column">
-                                        <img src="docs/reward_design.png" alt="">
+                                        <img src="docs/reward_design.png" alt="" class="custom-image">
                                     </div>
                                     <div class="col-span-3 custom-text-column">
                                         <div class="pb-1">
@@ -871,7 +892,7 @@
                                         <a href="https://phys.org/news/2022-08-learningbased-simulations-human-desire.html" target="_blank">Phys.org</a>,
                                         <a href="https://theness.com/neurologicablog/index.php/the-psychology-of-fomo/" target="_blank">Neurologica</a>,
                                         <a href="https://www.deutschlandfunk.de/warum-wir-nie-zufrieden-sind-mit-dem-was-wir-haben-100.html" target="_blank">Deutschlandfunk</a>,
-                                        <a href="https://nationalgeographic.grid.id/read/133412953/manusia-cenderung-ingin-lebih-meski-mengarah-pada-ketidakbahagiaan" target="_blank">National Geographic</a>
+                                        <a href="https://nationalgeographic.grid.id/read/133412953/manusia-cenderung-ingin-lebih-meski-mengarah-pada-ketidakbahagiaan" target="_blank">NatGeo</a>
                                     </p>
                                     <p>Featured as top post on <a href="https://www.reddit.com/r/science/comments/whkc90/research_has_found_we_pursue_more_rewards_when_we/">reddit r/science</a>!</p>
                                     </div>
@@ -885,7 +906,7 @@
                                 <div class="md:container md:mx-auto">
                                 <div class="grid grid-cols-4 gap-x-4 pb-10 text-sm">
                                     <div class="col-span-1 custom-image-column">
-                                        <img src="docs/aha.png" alt="">
+                                        <img src="docs/aha.png" alt="" class="custom-image">
                                     </div>
                                     <div class="col-span-3 custom-text-column">
                                         <div class="pb-1">
@@ -908,7 +929,7 @@
                                 <div class="md:container md:mx-auto">
                                 <div class="grid grid-cols-4 gap-x-4 pb-10 text-sm">
                                     <div class="col-span-1 custom-image-column">
-                                        <img src="docs/curiosity.png" alt="">
+                                        <img src="docs/curiosity.png" alt="" class="custom-image">
                                     </div>
                                     <div class="col-span-3 custom-text-column">
                                         <div class="pb-1">
@@ -923,13 +944,13 @@
                                             </p>
                                         </div>
                                         <p class="pb-1"><i>Psychological Review</i> (2020)</p>
-                                    <hr width="85%"> 
+                                    <hr width="92%"> 
                                     <br> 
                                     <p>
                                         Featured as a <b>spotlight article</b> in
                                         <a href="https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(20)30134-0" target="_blank"> Trends in Cognitive Science </a> 
                                     </p> 
-                                    <p> <strong>See also: </strong>our <a href = "http://173.236.226.255/papers/dubeyunderstanding.pdf" TARGET = "_blank">review</a> article discussing connections of our work to machine learning
+                                    <!--<p> <strong>See also: </strong>our <a href = "http://173.236.226.255/papers/dubeyunderstanding.pdf" TARGET = "_blank">review</a> article-->
                                     </p>
                                     </div>
                                 </div>
@@ -938,7 +959,7 @@
                             <div class="md:container md:mx-auto">
                                 <div class="grid grid-cols-4 gap-x-4 pb-10 text-sm">
                                     <div class="col-span-1 custom-image-column">
-                                        <img src="docs/prior.png" alt="">
+                                        <img src="docs/prior.png" alt="" class="custom-image">
                                     </div>
                                     <div class="col-span-3 custom-text-column">
                                         <div class="pb-1">
@@ -952,15 +973,15 @@
                                             </p>
                                         </div>
                                         <p class="pb-1"><i>International Conference on Machine Learning</i> (2018)</p>
-                                    <hr width="85%"> 
+                                    <hr width="92%"> 
                                     <br> 
-                                    <p> <strong>Selected Media:</strong> <a href="https://www.technologyreview.com/2018/03/07/3241/why-humans-learn-faster-than-ai-for-now/" target="_blank">MIT Technology Review</a>,  <a href="https://www.youtube.com/watch?v=0xlbzCXJpLM&t=1s&ab_channel=TwoMinutePapers" target="_blank">Two minute papers</a>, <a href="https://games.slashdot.org/story/18/03/08/1719228/why-humans-learn-faster-than-ai" target="_blank">Slashdot</a>
+                                    <p> <strong>Media:</strong> <a href="https://www.technologyreview.com/2018/03/07/3241/why-humans-learn-faster-than-ai-for-now/" target="_blank">MIT Tech Review</a>,  <a href="https://www.youtube.com/watch?v=0xlbzCXJpLM&t=1s&ab_channel=TwoMinutePapers" target="_blank">Two minute papers</a>, <a href="https://games.slashdot.org/story/18/03/08/1719228/why-humans-learn-faster-than-ai" target="_blank">Slashdot</a>
                 </p>
                 <p> 
-                <a href="https://rach0012.github.io/humanRL_website/">Play our games</a> to explore your inner RL agent!
+                Explore your inner RL agent: <a href="https://rachit-dubey.github.io/humanRL_website/" target="_blank">play our games</a>!
                 </p>
                 <p> 
-                Watch the <a href="https://www.youtube.com/watch?v=Ol0-c9OE3VQ&ab_channel=ArxivInsights"> Arxiv Insights </a> episode on our paper.
+                Watch the <a href="https://www.youtube.com/watch?v=Ol0-c9OE3VQ&ab_channel=ArxivInsights" target="_blank"> Arxiv Insights </a> episode on our paper.
             </p>
                                     </div>
                                 </div>
