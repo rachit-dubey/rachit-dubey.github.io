@@ -627,12 +627,17 @@
             }
             @media (max-width: 700px) {
                 .custom-image-column {
-                    width: 170px; /* Adjust this value as needed for smaller screens */
+                    width: 100px; /* Adjust this value as needed for smaller screens */
                 }
             }
             .custom-text-column {
                 max-width: calc(100%); /* Adjust the width for the text column */
                 padding-left: 80px; /* Add padding to the left side of the text column */
+            }
+            @media (max-width: 700px) {
+                .custom-text-column {
+                    padding-left: 0px; /* Adjust this value as needed for smaller screens */
+                }
             }
         </style>
         <style>
