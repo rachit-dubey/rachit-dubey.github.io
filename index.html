@@ -625,10 +625,21 @@
             .custom-image-column {
                 width: 250px; /* Adjust the width of the image column */
             }
-            
+            @media (max-width: 700px) {
+                .custom-image-column {
+                    display: none;
+                    width: 0px; /* Adjust this value as needed for smaller screens */
+                }
+            }
             .custom-text-column {
                 max-width: calc(100%); /* Adjust the width for the text column */
                 padding-left: 80px; /* Add padding to the left side of the text column */
+            }
+            @media (max-width: 700px) {
+                .custom-text-column {
+                    max-width: calc(100%);
+                    padding-left: 0px; /* Adjust this value as needed for smaller screens */
+                }
             }
         </style>
         <style>
@@ -641,7 +652,12 @@
         /* Use a media query to limit the image size on smaller screens */
         @media (max-width: 700px) {
             .custom-image {
+                display: none;
                 width: 120px; /* Adjust this value as needed for smaller screens */
+            }
+            #me-image {
+                height: 220px;
+                width: auto;
             }
         }
 
@@ -711,55 +727,57 @@
                 <div class="md:grid md:grid-cols-4 md:gap-x-4">
                     <div class="col-span-1 mb-10">
                         <div class="w-48 h-52 md:h-auto md:w-auto">
-                            <img src="me.jpg" alt="Rachit Dubey headshot" width="250" height="250" />
+                            <img id="me-image" src="me.jpg" alt="Rachit Dubey headshot" width="250" height="250" />
                         </div>
-                            <br>
                             <br> <!-- Add a line break here -->
-                            <div class="pb-7">
-                                <p>
-                                    Email
-                                    <!-- -->
-                                    <!-- -->
-                                    <a href="mailto:rachitd@mit.edu">rachitd@mit.edu</a>
-                                </p>
-                                <p>
-                                    Publications
-                                    <!-- -->
-                                    <!-- -->
-                                    <a href='https://scholar.google.com/citations?user=fJsSvzkAAAAJ&hl=en' target='_blank'>Google Scholar</a>
-                                </p>
-                                <p>
-                                    Curriculum Vitae 
-                                    <!-- -->
-                                    <a href="docs/CV.pdf" TARGET = "_blank">PDF</a>
-                                </p>
+                            <div style="background-color: #F8F8F8; padding-top: 10px; padding-left: 5px; border: 1px solid #C4C4C4;">
+                                <div class="pb-7">
+                                    <p>
+                                        Email
+                                        <!-- -->
+                                        <!-- -->
+                                        <a href="mailto:rachitd@mit.edu">rachitd@mit.edu</a>
+                                    </p>
+                                    <p>
+                                        Publications
+                                        <!-- -->
+                                        <!-- -->
+                                        <a href='https://scholar.google.com/citations?user=fJsSvzkAAAAJ&hl=en' target='_blank'>Google Scholar</a>
+                                    </p>
+                                    <p>
+                                        Curriculum Vitae 
+                                        <!-- -->
+                                        <a href="docs/CV.pdf" TARGET = "_blank">PDF</a>
+                                    </p>
+                                </div>
+                                <div class="pb-7">
+                                    <p>
+                                        <b>Current collaborators</b>
+                                        <br/>
+                                        <!-- -->
+                                        <a class="text-blue-600" href="https://mitsloan.mit.edu/faculty/directory/rahul-bhui">Rahul Bhui</a>,
+                                        <a class="text-blue-600" href="https://cocosci.princeton.edu/tom/index.php">Tom Griffiths</a>,
+                                        <a class="text-blue-600" href="https://psych.princeton.edu/people/jonathan-cohen">Jon Cohen</a>,
+                                        <a class="text-blue-600" href="https://www.mpg.de/12309370/biological-cybernetics-dayan">Peter Dayan</a>,
+                                        <a class="text-blue-600" href="https://affectivebrain.com/?page_id=161">Tali Sharot</a>,
+                                        <a class="text-blue-600" href="https://matthardy.org/">Matthew Hardy</a>,
+                                        <a class="text-blue-600" href="https://vecchi.princeton.edu/people/grace-liu">Grace Liu</a>,
+                                        <a class="text-blue-600" href="https://www.jakesnell.com/">Jake Snell</a>,
+                                        <a class="text-blue-600" href="https://davidrand-cooperation.com/">David Rand</a>, 
+                                        <a class="text-blue-600" href="https://ca.linkedin.com/in/zack-dulberg">Zack Dulberg</a>, 
+                                        <a class="text-blue-600" href="https://www.annieduke.com/">Annie Duke</a>, 
+                                        <a class="text-blue-600" href="https://www.linkedin.com/in/nikolay-sukhov">Nikolay Sukhov</a>
+                                        <br/>
+                                    </p>
+                                </div>
+                                <div>
+                                    <p>
+                                        <a href="docs/ykykyk_forever.pdf">Here's</a> a tribute written in the memory of my friend who got me started in research.
+                                    </p>
+                                    <br>
+                                </div>
                             </div>
-                            <div class="pb-7">
-                                <p>
-                                    <b>Current collaborators</b>
-                                    <br/>
-                                    <!-- -->
-                                    <a class="text-blue-600" href="https://mitsloan.mit.edu/faculty/directory/rahul-bhui">Rahul Bhui</a>,
-                                    <a class="text-blue-600" href="https://cocosci.princeton.edu/tom/index.php">Tom Griffiths</a>,
-                                    <a class="text-blue-600" href="https://psych.princeton.edu/people/jonathan-cohen">Jon Cohen</a>,
-                                    <a class="text-blue-600" href="https://www.mpg.de/12309370/biological-cybernetics-dayan">Peter Dayan</a>,
-                                    <a class="text-blue-600" href="https://affectivebrain.com/?page_id=161">Tali Sharot</a>,
-                                    <a class="text-blue-600" href="https://matthardy.org/">Matthew Hardy</a>,
-                                    <a class="text-blue-600" href="https://vecchi.princeton.edu/people/grace-liu">Grace Liu</a>,
-                                    <a class="text-blue-600" href="https://www.jakesnell.com/">Jake Snell</a>,
-                                    <a class="text-blue-600" href="https://davidrand-cooperation.com/">David Rand</a>, 
-                                    <a class="text-blue-600" href="https://ca.linkedin.com/in/zack-dulberg">Zack Dulberg</a>, 
-                                    <a class="text-blue-600" href="https://www.annieduke.com/">Annie Duke</a>, 
-                                    <a class="text-blue-600" href="https://www.linkedin.com/in/nikolay-sukhov">Nikolay Sukhov</a>
-                                    <br/>
-                                </p>
-                            </div>
-                            <div>
-                                <p>
-                                    <a href="docs/ykykyk_forever.pdf">Here's</a> a tribute written in the memory of my friend who got me started in research.
-                                </p>
-                            </div>
-
+                            
                         </div>
                         <div class="col-span-3">
                             <div class="writing">
