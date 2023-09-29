@@ -627,19 +627,12 @@
             }
             @media (max-width: 700px) {
                 .custom-image-column {
-                    display: none;
-                    width: 0px; /* Adjust this value as needed for smaller screens */
+                    width: 120px; /* Adjust this value as needed for smaller screens */
                 }
             }
             .custom-text-column {
                 max-width: calc(100%); /* Adjust the width for the text column */
                 padding-left: 80px; /* Add padding to the left side of the text column */
-            }
-            @media (max-width: 700px) {
-                .custom-text-column {
-                    max-width: calc(100%);
-                    padding-left: 0px; /* Adjust this value as needed for smaller screens */
-                }
             }
         </style>
         <style>
@@ -652,7 +645,6 @@
         /* Use a media query to limit the image size on smaller screens */
         @media (max-width: 700px) {
             .custom-image {
-                display: none;
                 width: 120px; /* Adjust this value as needed for smaller screens */
             }
             #me-image {
