@@ -8,118 +8,506 @@
     <link href="style.css" rel="stylesheet">
     <link rel="preload" as="image" href="me-circle.png" />
     <title>Rachit Dubey</title>
+    <style>
+        /* ── Tab buttons ───────────────────────────────────────── */
+        .pub-tabs {
+            display: flex;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 1.6rem;
+            margin-top: 0.4rem;
+        }
+        .pub-tab-btn {
+            padding: 7px 20px;
+            font-size: 14px;
+            font-family: inherit;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            cursor: pointer;
+            background: none;
+            color: #aaa;
+            border: 1px solid transparent;
+            border-bottom: none;
+            margin-bottom: -1px;
+            transition: color 0.15s;
+        }
+        .pub-tab-btn:hover { color: #555; }
+        .pub-tab-btn.active {
+            color: SlateBlue;
+            background: #fff;
+            border-color: #ccc;
+            border-bottom-color: #fff;
+}
+        
+        .pub-panel { display: none; }
+        .pub-panel.active { display: block; }
+
+        /* ── Shared entry block ────────────────────────────────── */
+        .pub-entry {
+            padding: 14px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .pub-entry:last-child { border-bottom: none; }
+
+        .pub-entry-title {
+            font-size: 16px;
+            line-height: 1.45;
+            margin: 0 0 4px 0;
+        }
+        .pub-entry-title a {
+            color: #1a56db;
+            text-decoration: none;
+        }
+        .pub-entry-title a:hover { text-decoration: underline; }
+
+        .pub-entry-authors {
+            font-size: 15px;
+            color: #555;
+            margin: 0 0 5px 0;
+            line-height: 1.4;
+        }
+
+        /* ── Award / spotlight badges (kept; venue is now inline text) */
+        .badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 500;
+            border-radius: 3px;
+            padding: 2px 7px;
+            margin-left: 6px;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+        .badge-award    { background: #fff0db; color: #9a5500; font-weight: 600; }
+        .badge-spotlight { background: #e8f4ea; color: #2e6e35; }
+        .badge-inpress  { background: #fff4e0; color: #9a6200; }
+
+        /* ── Coverage / links row ──────────────────────────────── */
+        .pub-entry-coverage {
+            margin-top: 6px;
+            font-size: 12.5px;
+            color: #777;
+            line-height: 1.7;
+        }
+        .pub-entry-coverage .cov-label {
+            font-weight: 600;
+            color: #999;
+            text-transform: uppercase;
+            font-size: 10.5px;
+            letter-spacing: 0.05em;
+            margin-right: 4px;
+        }
+        .pub-entry-coverage a {
+            color: #666;
+            text-decoration: none;
+            border-bottom: 1px solid #ddd;
+            transition: color 0.12s, border-color 0.12s;
+        }
+        .pub-entry-coverage a:hover {
+            color: #1a56db;
+            border-color: #1a56db;
+        }
+        .cov-row { margin-top: 2px; }
+
+        /* ── Year headings (All tab) ───────────────────────────── */
+        .year-section { margin-bottom: 0.5rem; }
+        .year-heading {
+            font-size: 15px;
+            font-weight: 700;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 10px 0 4px 0;
+        }
+    </style>
 </head>
 <body>
-    <div class = 'content'>
-        <!-- picture -->
-        <div class='main-title-wrapper'>
-            <div id = 'image-wrapper'><img src="me-circle.png" width='105%'></div>
-            <div class = 'main-title'>
-                Rachit Dubey
-            </div>
-                <a href="mailto:rdubey@ucla.edu">Email</a>
-                <span class = 'dot-span'>&#9642;</span>
-                <a href='https://scholar.google.com/citations?user=fJsSvzkAAAAJ&hl=en' target='_blank'>
-                    google scholar
-                </a>
-                <span class = 'dot-span'>&#9642;</span>
-                <a href = "images/CV.pdf" TARGET = "_blank">CV</a>
-                <span class = 'dot-span'>&#9642;</span>
-                <a href = "https://bsky.app/profile/rachitdubey.bsky.social" TARGET = "_blank">BlueSky</a>
-                <br>
-            <span style="padding-top: 5px; display: inline-block; color: #666;"><a href = "images/ykykyk_forever.pdf" TARGET = "_blank" style="color: #666; text-decoration: underline;">Here's</a> a tribute written in the memory of my friend who got me started into research.</span>
-        </div>
-        <div class = 'flex-container'>
-            <div>
-                <p>I am an Assistant Professor at UCLA in the  <a href="https://comm.ucla.edu/">Department of Communication</a>. Previously, I was a postdoc at <a href="https://mitsloan.mit.edu/phd/program-overview/marketing" TARGET = "_blank">MIT Sloan Marketing</a>. Before then, I received my PhD in Computer Science at Princeton University, advised by <a href="https://cocosci.princeton.edu/people.php" TARGET = "_blank">Tom Griffiths</a>, with my <a href="https://cocosci.princeton.edu/rachit/images/dissertation.pdf" TARGET = "_blank">dissertation</a> receiving the 2024 <a href="https://www.tsfnc.org/sfnc-awards" TARGET = "_blank">SfNC dissertation award</a>. My research was recently honored with the 2025 Grand Prize of the <b><a href="https://www.science.org/content/page/nomis-science-young-explorer-award" Target="_blank">NOMIS and Science Young Explorer Award</a></b>. 
-                </p>
-                
+    <div class='content'>
 
-                <h3> Research Summary </h3> 
+        <div class='main-title-wrapper'>
+            <div id='image-wrapper'><img src="me-circle.png" width='105%'></div>
+            <div class='main-title'>Rachit Dubey</div>
+            <a href="mailto:rdubey@ucla.edu">Email</a>
+            <span class='dot-span'>&#9642;</span>
+            <a href='https://scholar.google.com/citations?user=fJsSvzkAAAAJ&hl=en' target='_blank'>google scholar</a>
+            <span class='dot-span'>&#9642;</span>
+            <a href="images/CV.pdf" TARGET="_blank">CV</a>
+            <span class='dot-span'>&#9642;</span>
+            <a href="https://bsky.app/profile/rachitdubey.bsky.social" TARGET="_blank">BlueSky</a>
+            <br>
+            <span style="padding-top:5px; display:inline-block; color:#666;">
+                <a href="images/ykykyk_forever.pdf" TARGET="_blank" style="color:#666; text-decoration:underline;">Here's</a>
+                a tribute written in the memory of my friend who got me started into research.
+            </span>
+        </div>
+
+        <div class='flex-container'>
+            <div>
+                <p>I am an Assistant Professor at UCLA in the <a href="https://comm.ucla.edu/">Department of Communication</a>. Previously, I was a postdoc at <a href="https://mitsloan.mit.edu/phd/program-overview/marketing" TARGET="_blank">MIT Sloan Marketing</a>. Before then, I received my PhD in Computer Science at Princeton University, advised by <a href="https://cocosci.princeton.edu/people.php" TARGET="_blank">Tom Griffiths</a>, with my <a href="https://cocosci.princeton.edu/rachit/images/dissertation.pdf" TARGET="_blank">dissertation</a> receiving the 2024 <a href="https://www.tsfnc.org/sfnc-awards" TARGET="_blank">SfNC dissertation award</a>. My work has received various awards, including the <a href="https://www.psychologicalscience.org/members/awards-and-honors/aps-rising-stars/news-rising-stars" Target="_blank">APS Rising Star Award</a> and the 2025 Grand Prize of the <b><a href="https://www.science.org/content/page/nomis-science-young-explorer-award" Target="_blank">NOMIS and Science Young Explorer Award</a></b>.
+                </p>
+
+                <h3>Research Summary</h3>
                 <p>I am a computational cognitive scientist, working at the intersection of <strong>cognition, AI, and policy</strong>. My lab, the <a href="https://ucla-cocopol.github.io/" target="_blank"><strong><span style="color:SlateBlue;">Computational Cognitive Policy Lab</span></a></strong>, focuses on two core questions. First, we study how our minds fail to notice or act on long-term threats such as climate change and technology dependence. Second, we employ AI and machine learning tools to design <strong>human-centric</strong> policies - policies that reflect diverse perspectives and are more likely to gain public support. My lab regularly collaborates with policymakers and agencies to help translate these insights into scalable action.</p>
 
-                <!--<h3> Research Summary </h3> 
-                <p>Climate change is the <i>defining</i> challenge of our time, but solving it requires more than just technical solutions. As a <strong>computational cognitive scientist</strong>, my research aims to address two core barriers. First, I study the cognitive reasons why climate change fails to <i>feel</i> urgent; how our minds fail to notice or act on long-term threats. Second, I employ AI and machine learning tools to design <strong>human-centric</strong> climate policies—policies that reflect diverse perspectives and are more likely to gain public support. My lab regularly collaborates with policymakers and agencies to help translate these insights into scalable action.</p>-->
-<!--If we want to stop treating climate change as background noise, we need to understand the blind spots that keep us stuck today. -->
-
-               <!-- <h3> Research Group </h3> 
-                <p> My lab, the <a href="https://ucla-cocopol.github.io/" target="_blank"><strong><span style="color:SlateBlue;">Computational Cognitive Policy Lab</span></a></strong>, focuses on both theoretical questions about human motivation and climate inaction, as well as collaborate with policymakers to bridge divides on climate policy. For more details, check out <a href="images/rachit_climate_talk.pdf" TARGET="_blank">these slides</a> from a recent talk. I will be recruiting several PhD students in the coming years, so if you're interested, please feel free to reach out. Applicants for the Fall 2026 cycle can apply to the <a href="https://comm.ucla.edu/graduate/admissions/" TARGET="_blank">UCLA Communication PhD program</a> and mention my name in the application.
-
-                <p>I am especially interested in students with a background in cognitive science who have strong computational training and a core interest in climate change and policy. I also welcome applicants from adjacent fields, such as machine learning or political science, who are excited to work on the cognitive and computational foundations of climate inaction. Above all, I value a lab culture that is rigorous, collaborative, and kind.</p>
-
-                <p>Here are some excellent resources on applying to grad school and writing a strong application: <a href="https://www.brains-explained.com/advice-for-applying-to-phd-programs/" target="_blank">[1]</a>, <a href="https://lucylai.com/blog/gradapps" target="_blank">[2]</a>, and <a href="https://www.katenuss.com/advice/applying_to_phd/" target="_blank">[3]</a>.</p>-->
-
-                <hr class = 'main-hr'>
-
+                <hr class='main-hr'>
             </div>
         </div>
 
+        <!-- ════════════════════════════════════════════
+             PUBLICATIONS
+             ════════════════════════════════════════════ -->
         <div>
-            <h3> Representative publications <span style="font-weight: normal; font-size: 14px;">(see my  <a href='https://scholar.google.com/citations?user=fJsSvzkAAAAJ&hl=en' target='_blank'>
-                    google scholar
-                </a> or <a href="images/CV.pdf" TARGET = "_blank">CV</a> for full list of publications)</span></h3> 
-            <div>
-
-                <div class="publication-entry"><p><a href = "images/science.aeb2654.pdf" TARGET = "_blank"><span style="font-weight: strong; font-size: 18px;">The normalization of (almost) everything</a> </span></br>
-                    <b>Rachit Dubey</b> (2025). <i>Science</i><br/>
-                <span style = "font-size: 90%"> Grand Prize Winner, <a href="https://www.science.org/content/page/nomis-science-young-explorer-award" target="_blank" > Nomis & Science Young Explorer Award. </a></span>
-                <br><span style = "font-size: 90%"> <a class="section-heading" href="#"><u>Selected interviews:</u> <a href="https://www.science.org/content/article/scienceadviser-how-our-minds-gaslight-us-about-climate-change" TARGET = "_blank" style="color:#555;"><i>Science</i> magazine</a>, <a href = "https://www.cbc.ca/radio/quirks/snake-artic-fox-golf-ball-9.6978965" TARGET = "_blank" style="color:#555;">Radio interview with CBC Quirks & Quarks</a>, <a href="https://www.aaas.org/news/prize-winners-harness-interdisciplinary-tools-investigate-climate-apathy-and-human-health" TARGET = "_blank" style="color:#555;">AAAS news</a></span>
-                <br>
-                </p>
-
-                <div class="publication-entry"><p><a href = "images/binary_climate_ms.pdf" TARGET = "_blank"><span style="font-weight: strong; font-size: 18px;">Binary climate data visuals amplify perceived impact of climate change</a></span></br>
-                Grace Liu, Jake Snell, Tom Griffiths, and <b>Rachit Dubey</b> (2025). <i>Nature Human Behavior</i>                 
-                <br><span style = "font-size: 90%"> <a class="section-heading" href="#"><u>Media coverage:</u> <a href="https://www.theguardian.com/news/2025/jul/24/boiling-frog-effect-makes-people-oblivious-to-threat-of-climate-crisis-shows-study" TARGET = "_blank" style="color:#555;">Guardian</a>, <a href="https://grist.org/science/break-through-climate-apathy-data-visualization-lake-freezing-study/" TARGET = "_blank" style="color:#555;">Grist</a>, <a href = "https://gizmodo.com/study-uncovers-the-one-thing-that-cuts-through-climate-apathy-loss-2000598328" TARGET = "_blank" style="color:#555;">Gizmodo</a>, <a href="https://newsroom.ucla.edu/stories/climate-change-apathy-how-to-break-through" TARGET = "_blank" style="color:#555;">UCLA Newsroom</a>, <a href="https://legal-planet.org/2025/05/07/the-good-the-bad-and-the-utter-contempt/" TARGET = "_blank" style="color:#555;">Legal Planet</a></span>
+            <h3>Publications
                 
-                <br><span style = "font-size: 90%"> <a class="section-heading" href="#"><u>Invited Op-eds:</u> <a href="https://www.newscientist.com/article/mg26635491-600-why-climate-change-fades-into-the-background-and-how-to-change-that/" TARGET = "_blank" style="color:#555;">New Scientist</a>, <a href="https://thebulletin.org/2025/07/how-clear-and-simple-data-visualizations-bring-the-climate-crisis-home/"TARGET = "_blank" style="color:#555;">Bulletin.org</a></span>
+            </h3>
 
-                <br><span style = "font-size: 90%"> <a class="section-heading" href="#"><u>Discussions on the web:</u> <a href="https://www.reddit.com/r/climate/comments/1m7x2kw/boiling_frog_effect_makes_people_oblivious_to/" TARGET = "_blank" style="color:#555;">r/climate</a>, <a href="https://news.slashdot.org/story/25/07/24/1643252/boiling-frog-effect-makes-people-oblivious-to-threat-of-climate-crisis-shows-study"TARGET = "_blank" style="color:#555;">Slashdot</a>, <a href="https://bsky.app/profile/volts.wtf/post/3lmzptj4yus2s"TARGET = "_blank" style="color:#555;">Bluesky</a></span>
-                </p></div>
-
-                <!--<p><a href = "https://psyarxiv.com/exz2a" TARGET = "_blank"><span style="font-weight: strong; font-size: 18px;">Public good messaging motivates the wealthy to reduce water consumption</a></span></br>
-                Gordon Kraft-Todd*, <b>Rachit Dubey*</b>,  Erez Yoeli, David Rand, and Syon Bhanot (under review) <br>
-                </p>-->
-
-                <div class="publication-entry"> <p><a href="https://rdcu.be/dzqjm" TARGET = "_blank"><span style="font-weight: strong; font-size: 18px;">AI-generated visuals of car-free US cities help improve support for sustainable policies</a></span></br>
-                <b>Rachit Dubey</b>, Matthew Hardy, Thomas Griffiths, and Rahul Bhui</b> (2024). <i>Nature Sustainability</i> 
-                <br><span style = "font-size: 90%"> <a class="section-heading" href="#"><u>Media coverage:</u> <a href="https://www.bloomberg.com/news/articles/2024-05-10/ai-images-from-dall-e-boost-support-for-pedestrian-and-bike-friendly-streets?utm_campaign=socialflow-organic&utm_source=twitter&utm_content=citylab&utm_medium=social" TARGET = "_blank" style="color:#555;">Bloomberg</a>, <a href = "https://mitsloan.mit.edu/ideas-made-to-matter/sustainable-policies-get-a-boost-ai-generated-visuals" TARGET = "_blank" style="color:#555;">MIT Ideas Made to Matter</a>, <a href="https://www.washingtonpost.com/opinions/interactive/2024/superblocks-barcelona-cities-congestion/" TARGET = "_blank" style="color:#555;">Washington Post</a></span>
-                <br>
-                </p></div>
-
-                <div class="publication-entry"><p><span style="font-weight: strong; font-size: 18px;"><a href = "https://www.pnas.org/doi/10.1073/pnas.2221180120" TARGET = "_blank">Having multiple selves helps learning agents explore and adapt in complex changing worlds</a></span></br>
-                Zack Dulberg, <b>Rachit Dubey</b>, Isabel Berwian, and Jonathan Cohen (2023).  <i>PNAS</i>
-                <br> 
-                <span style = "font-size: 90%"> <a class="section-heading" href="#"><u>Media coverage:</u></a> <a href="https://www.psychologytoday.com/intl/blog/the-digital-self/202308/leveraging-the-power-of-multi-selves-in-ai-and-llms" TARGET = "_blank" style="color:#555;">Psychology Today</a>, <a href = "https://pni.princeton.edu/news/power-multiple-selves-understanding-decision-making-through-modular-agents" TARGET = "_blank" style="color:#555;">Princeton News</a>, <a href="https://techxplore.com/news/2023-07-multiple-modular-agents-boost-ai.html" TARGET = "_blank" style="color:#555;">Tech Xplore</a></span><br>
-                </p></div>
-
-                <div class="publication-entry"><p><span style="font-weight: strong; font-size: 18px;"><a href = "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010316" TARGET = "_blank">The pursuit of happiness: A reinforcement learning perspective on habituation and comparisons</a></span></br>
-                <b>Rachit Dubey</b>, Tom Griffiths, and Peter Dayan (2022). <i>PLOS Computational Biology </i> 
-                <br>
-                <span style = "font-size: 90%"> <a class="section-heading" href="#"><u>Media coverage:</u>
-                                        <a href="https://www.vox.com/the-highlight/24091379/how-to-be-enough-habituation-hedonic-treadmill-comparison" target="_blank" style="color:#555;">Vox</a>,
-                                        <a href="https://phys.org/news/2022-08-learningbased-simulations-human-desire.html" target="_blank" style="color:#555;">Phys.org</a>,
-                                        <a href="https://theness.com/neurologicablog/index.php/the-psychology-of-fomo/" target="_blank" style="color:#555;">Neurologica</a>,
-                                        <a href="https://www.deutschlandfunk.de/warum-wir-nie-zufrieden-sind-mit-dem-was-wir-haben-100.html" target="_blank" style="color:#555;">Deutschlandfunk</a>,
-                                        <a href="https://nationalgeographic.grid.id/read/133412953/manusia-cenderung-ingin-lebih-meski-mengarah-pada-ketidakbahagiaan" target="_blank" style="color:#555;">NatGeo</a>
-                </span><br/>
-                
-                </p></div>
-
-                <div class="publication-entry"><p><span style="font-weight: strong; font-size: 18px;"><a href = "https://psyarxiv.com/wg5m6/" TARGET = "_blank">Reconciling novelty and complexity through a rational analysis of curiosity</a></span></br>
-                <b>Rachit Dubey</b>, and Tom Griffiths (2020). <i>Psychological Review </i>
-                <br/>
-                <span style = "font-size: 90%"> Featured as a <b>spotlight article</b> in
-                                        <a href="https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(20)30134-0" target="_blank" > Trends in Cognitive Science. </a></span>
-                </p></div>
-                <br>
+            <div class="pub-tabs">
+                <button class="pub-tab-btn active" onclick="switchPubTab('selected', this)">Selected</button>
+                <button class="pub-tab-btn" onclick="switchPubTab('all', this)">All publications</button>
             </div>
+
+            <!-- ══ SELECTED ══════════════════════════════════════ -->
+            <div id="pub-selected" class="pub-panel active">
+
+                <div class="pub-entry">
+                    <p class="pub-entry-title">
+                        <a href="https://www.science.org/doi/10.1126/science.aeb2654" TARGET="_blank">The normalization of (almost) everything</a>
+                        <span class="badge badge-award">&#9733; Grand Prize, NOMIS &amp; Science</span>
+                    </p>
+                    <p class="pub-entry-authors"><b>Rachit Dubey</b> (2025). <i>Science.</i></p>
+                    <div class="pub-entry-coverage">
+                        <div class="cov-row">
+                            <span class="cov-label">Interviews</span>
+                            <a href="https://www.science.org/content/article/scienceadviser-how-our-minds-gaslight-us-about-climate-change" TARGET="_blank"><i>Science</i> magazine</a>,
+                            <a href="https://www.cbc.ca/radio/quirks/snake-artic-fox-golf-ball-9.6978965" TARGET="_blank">CBC Quirks &amp; Quarks</a>,
+                            <a href="https://www.aaas.org/news/prize-winners-harness-interdisciplinary-tools-investigate-climate-apathy-and-human-health" TARGET="_blank">AAAS news</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-entry">
+                    <p class="pub-entry-title">
+                        <a href="https://www.nature.com/articles/s41562-025-02183-9" TARGET="_blank">Binary climate data visuals amplify perceived impact of climate change</a>
+                    </p>
+                    <p class="pub-entry-authors">Grace Liu, Jake Snell, Tom Griffiths, and <b>Rachit Dubey</b> (2025). <i>Nature Human Behavior.</i></p>
+                    <div class="pub-entry-coverage">
+                        <div class="cov-row">
+                            <span class="cov-label">Media</span>
+                            <a href="https://www.theguardian.com/news/2025/jul/24/boiling-frog-effect-makes-people-oblivious-to-threat-of-climate-crisis-shows-study" TARGET="_blank">Guardian</a>,
+                            <a href="https://grist.org/science/break-through-climate-apathy-data-visualization-lake-freezing-study/" TARGET="_blank">Grist</a>,
+                            <a href="https://gizmodo.com/study-uncovers-the-one-thing-that-cuts-through-climate-apathy-loss-2000598328" TARGET="_blank">Gizmodo</a>,
+                            <a href="https://newsroom.ucla.edu/stories/climate-change-apathy-how-to-break-through" TARGET="_blank">UCLA Newsroom</a>,
+                            <a href="https://legal-planet.org/2025/05/07/the-good-the-bad-and-the-utter-contempt/" TARGET="_blank">Legal Planet</a>
+                        </div>
+                        <div class="cov-row">
+                            <span class="cov-label">Op-eds</span>
+                            <a href="https://www.newscientist.com/article/mg26635491-600-why-climate-change-fades-into-the-background-and-how-to-change-that/" TARGET="_blank">New Scientist</a>,
+                            <a href="https://thebulletin.org/2025/07/how-clear-and-simple-data-visualizations-bring-the-climate-crisis-home/" TARGET="_blank">Bulletin of the Atomic Scientists</a>
+                        </div>
+                        <div class="cov-row">
+                            <span class="cov-label">Web</span>
+                            <a href="https://www.reddit.com/r/climate/comments/1m7x2kw/boiling_frog_effect_makes_people_oblivious_to/" TARGET="_blank">r/climate</a>,
+                            <a href="https://news.slashdot.org/story/25/07/24/1643252/boiling-frog-effect-makes-people-oblivious-to-threat-of-climate-crisis-shows-study" TARGET="_blank">Slashdot</a>,
+                            <a href="https://bsky.app/profile/volts.wtf/post/3lmzptj4yus2s" TARGET="_blank">Bluesky</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-entry">
+                    <p class="pub-entry-title">
+                        <a href="https://rdcu.be/dzASl" TARGET="_blank">AI-generated visuals of car-free US cities help improve support for sustainable policies</a>
+                    </p>
+                    <p class="pub-entry-authors"><b>Rachit Dubey</b>, Matthew Hardy, Thomas Griffiths, and Rahul Bhui (2024). <i>Nature Sustainability.</i></p>
+                    <div class="pub-entry-coverage">
+                        <div class="cov-row">
+                            <span class="cov-label">Media</span>
+                            <a href="https://www.bloomberg.com/news/articles/2024-05-10/ai-images-from-dall-e-boost-support-for-pedestrian-and-bike-friendly-streets?utm_campaign=socialflow-organic&utm_source=twitter&utm_content=citylab&utm_medium=social" TARGET="_blank">Bloomberg</a>,
+                            <a href="https://mitsloan.mit.edu/ideas-made-to-matter/sustainable-policies-get-a-boost-ai-generated-visuals" TARGET="_blank">MIT Ideas Made to Matter</a>,
+                            <a href="https://www.washingtonpost.com/opinions/interactive/2024/superblocks-barcelona-cities-congestion/" TARGET="_blank">Washington Post</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-entry">
+                    <p class="pub-entry-title">
+                        <a href="https://www.pnas.org/doi/10.1073/pnas.2221180120" TARGET="_blank">Having multiple selves helps learning agents explore and adapt in complex changing worlds</a>
+                    </p>
+                    <p class="pub-entry-authors">Zack Dulberg, <b>Rachit Dubey</b>, Isabel Berwian, and Jonathan Cohen (2023). <i>PNAS.</i></p>
+                    <div class="pub-entry-coverage">
+                        <div class="cov-row">
+                            <span class="cov-label">Media</span>
+                            <a href="https://www.psychologytoday.com/intl/blog/the-digital-self/202308/leveraging-the-power-of-multi-selves-in-ai-and-llms" TARGET="_blank">Psychology Today</a>,
+                            <a href="https://pni.princeton.edu/news/power-multiple-selves-understanding-decision-making-through-modular-agents" TARGET="_blank">Princeton News</a>,
+                            <a href="https://techxplore.com/news/2023-07-multiple-modular-agents-boost-ai.html" TARGET="_blank">Tech Xplore</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-entry">
+                    <p class="pub-entry-title">
+                        <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010316" TARGET="_blank">The pursuit of happiness: A reinforcement learning perspective on habituation and comparisons</a>
+                    </p>
+                    <p class="pub-entry-authors"><b>Rachit Dubey</b>, Tom Griffiths, and Peter Dayan (2022). <i>PLOS Computational Biology.</i></p>
+                    <div class="pub-entry-coverage">
+                        <div class="cov-row">
+                            <span class="cov-label">Media</span>
+                            <a href="https://www.vox.com/the-highlight/24091379/how-to-be-enough-habituation-hedonic-treadmill-comparison" target="_blank">Vox</a>,
+                            <a href="https://phys.org/news/2022-08-learningbased-simulations-human-desire.html" target="_blank">Phys.org</a>,
+                            <a href="https://theness.com/neurologicablog/index.php/the-psychology-of-fomo/" target="_blank">Neurologica</a>,
+                            <a href="https://www.deutschlandfunk.de/warum-wir-nie-zufrieden-sind-mit-dem-was-wir-haben-100.html" target="_blank">Deutschlandfunk</a>,
+                            <a href="https://nationalgeographic.grid.id/read/133412953/manusia-cenderung-ingin-lebih-meski-mengarah-pada-ketidakbahagiaan" target="_blank">NatGeo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-entry">
+                    <p class="pub-entry-title">
+                        <a href="https://psyarxiv.com/wg5m6/" TARGET="_blank">Reconciling novelty and complexity through a rational analysis of curiosity</a>
+                        <span class="badge badge-spotlight">Spotlight, Trends in Cog Sci</span>
+                    </p>
+                    <p class="pub-entry-authors"><b>Rachit Dubey</b> and Tom Griffiths (2020). <i>Psychological Review.</i></p>
+                </div>
+
+            </div><!-- /pub-selected -->
+
+
+            <!-- ══ ALL PUBLICATIONS ══════════════════════════════ -->
+            <div id="pub-all" class="pub-panel">
+
+                <div class="year-section">
+                    <div class="year-heading">2026</div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="https://psyarxiv.com/c5v42/" target="_blank">Aha! moments correspond to metacognitive prediction errors</a>
+                            <span class="badge badge-inpress">in press</span>
+                        </p>
+                        <p class="pub-entry-authors"><b>Dubey, R.</b>, Ho, M., Mehta, H., &amp; Griffiths, T.L. <i>Cognition.</i></p>
+                    </div>
+                </div>
+
+                <div class="year-section">
+                    <div class="year-heading">2025</div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="https://www.science.org/doi/10.1126/science.aeb2654" target="_blank">The normalization of (almost) everything</a>
+                            <span class="badge badge-award">&#9733; Grand Prize, NOMIS &amp; Science</span>
+                        </p>
+                        <p class="pub-entry-authors"><b>Dubey, R.</b> (2025). <i>Science.</i></p>
+                    </div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="https://www.nature.com/articles/s41562-025-02183-9" target="_blank">Binary climate data visuals amplify perceived impact of climate change</a>
+                        </p>
+                        <p class="pub-entry-authors">Liu, G., Snell, J., Griffiths, T.L., &amp; <b>Dubey, R.</b> (2025). <i>Nature Human Behavior.</i></p>
+                    </div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40522821/" target="_blank">When to keep trying and when to let go: Benchmarking optimal quitting</a>
+                        </p>
+                        <p class="pub-entry-authors">Sukhov, N.*, <b>Dubey, R.*</b>, Duke, A., &amp; Griffiths, T.L. (2025). <i>Journal of Experimental Psychology: General.</i></p>
+                    </div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40424171/" target="_blank">Adapting to loss: A computational model of grief</a>
+                        </p>
+                        <p class="pub-entry-authors">Dulberg, Z., <b>Dubey, R.</b>, &amp; Cohen, J. (2025). <i>Psychological Review.</i></p>
+                    </div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="https://www.sciencedirect.com/science/article/pii/S235215462500066X" target="_blank">Leveraging AI to advance psychological research for climate policy</a>
+                        </p>
+                        <p class="pub-entry-authors">Yu, D., Thompson, B.D., &amp; <b>Dubey, R.</b> (2025). <i>Current Opinion in Behavioral Sciences.</i></p>
+                    </div>
+                </div>
+
+                <div class="year-section">
+                    <div class="year-heading">2024</div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="https://rdcu.be/dzASl" target="_blank">AI-generated visuals of car-free US cities help improve support for sustainable policies</a>
+                        </p>
+                        <p class="pub-entry-authors"><b>Dubey, R.</b>, Hardy, M., Griffiths, T.L., &amp; Bhui, R. (2024). <i>Nature Sustainability.</i></p>
+                    </div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="https://academic.oup.com/pnasnexus/article/3/11/pgae485/7857506" target="_blank">Learning from and about scientists: Consensus messaging shapes perceptions of climate change and climate scientists</a>
+                        </p>
+                        <p class="pub-entry-authors">Orchinik, R., <b>Dubey, R.</b>, Gershman, S., Powell, D., &amp; Bhui, R. (2024). <i>PNAS Nexus.</i></p>
+                    </div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="https://psycnet.apa.org/record/2024-73284-001" target="_blank">Why context should matter</a>
+                        </p>
+                        <p class="pub-entry-authors">Bhui, R. &amp; <b>Dubey, R.</b> (2024). <i>Decision.</i></p>
+                    </div>
+                </div>
+
+                <div class="year-section">
+                    <div class="year-heading">2023</div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="https://www.pnas.org/doi/10.1073/pnas.2221180120" target="_blank">Having "multiple selves" helps learning agents explore and adapt in complex changing worlds</a>
+                        </p>
+                        <p class="pub-entry-authors">Dulberg, Z., <b>Dubey, R.</b>, Berwian, I., &amp; Cohen, J. (2023). <i>PNAS.</i></p>
+                    </div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="https://escholarship.org/content/qt0x36617d/qt0x36617d.pdf" target="_blank">Learning about scientists from climate consensus messaging</a>
+                        </p>
+                        <p class="pub-entry-authors">Orchinik, R., <b>Dubey, R.</b>, Powell, D., Gershman, S., &amp; Bhui, R. (2023). <i>Proceedings of the 45th Annual Conference of the Cognitive Science Society.</i></p>
+                    </div>
+                </div>
+
+                <div class="year-section">
+                    <div class="year-heading">2022</div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010316" target="_blank">The pursuit of happiness: A reinforcement learning perspective on habituation and comparisons</a>
+                        </p>
+                        <p class="pub-entry-authors"><b>Dubey, R.</b>, Griffiths, T.L., &amp; Dayan, P. (2022). <i>PLOS Computational Biology.</i></p>
+                    </div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="https://www.sciencedirect.com/science/article/pii/S0010027722001810" target="_blank">If it's important, then I'm curious: Increasing perceived usefulness stimulates curiosity</a>
+                        </p>
+                        <p class="pub-entry-authors"><b>Dubey, R.</b>, Griffiths, T.L., &amp; Lombrozo, T. (2022). <i>Cognition.</i></p>
+                    </div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="https://arxiv.org/pdf/2204.06608.pdf" target="_blank">Modularity benefits reinforcement learning agents with competing homeostatic drives</a>
+                        </p>
+                        <p class="pub-entry-authors">Dulberg, Z., <b>Dubey, R.</b>, Berwian, I.M., &amp; Cohen, J.D. (2022). <i>Proceedings of the 5th Multidisciplinary Conference on Reinforcement Learning and Decision Making.</i></p>
+                    </div>
+                </div>
+
+                <div class="year-section">
+                    <div class="year-heading">2021</div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7900967/pdf/COGS-45-e12937.pdf" target="_blank">Curiosity is contagious: A social influence intervention to induce curiosity</a>
+                        </p>
+                        <p class="pub-entry-authors"><b>Dubey, R.*</b>, Mehta, H.*, &amp; Lombrozo, T. (2021). <i>Cognitive Science.</i></p>
+                    </div>
+                </div>
+
+                <div class="year-section">
+                    <div class="year-heading">2020</div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="https://psyarxiv.com/wg5m6/" target="_blank">Reconciling novelty and complexity via a rational analysis of curiosity</a>
+                            <span class="badge badge-spotlight">Spotlight, Trends in Cog Sci</span>
+                        </p>
+                        <p class="pub-entry-authors"><b>Dubey, R.</b> &amp; Griffiths, T.L. (2020). <i>Psychological Review.</i></p>
+                    </div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="http://173.236.226.255/papers/dubeyunderstanding.pdf" target="_blank">Understanding exploration in humans and machines by formalizing the function of curiosity</a>
+                        </p>
+                        <p class="pub-entry-authors"><b>Dubey, R.</b> &amp; Griffiths, T.L. (2020). <i>Current Opinion in Behavioral Sciences.</i></p>
+                    </div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="https://arxiv.org/pdf/2011.13782.pdf" target="_blank">Connecting context-specific adaptation in humans to meta-learning</a>
+                        </p>
+                        <p class="pub-entry-authors"><b>Dubey, R.*</b>, Grant, E.*, Luo, M.*, Narasimhan, K., &amp; Griffiths, T.L. (2020). <i>arXiv:2011.13782.</i></p>
+                    </div>
+                </div>
+
+                <div class="year-section">
+                    <div class="year-heading">2019</div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="https://www.researchgate.net/profile/Rachit-Dubey/publication/338514226_If_it's_important_then_I_am_curious_A_value_intervention_to_induce_curiosity/links/5e188cf4299bf10bc3a112ee/If-its-important-then-I-am-curious-A-value-intervention-to-induce-curiosity.pdf" target="_blank">If it's important, then I am curious: A value-based intervention method to induce curiosity</a>
+                        </p>
+                        <p class="pub-entry-authors"><b>Dubey, R.</b>, Griffiths, T.L., &amp; Lombrozo, T. (2019). <i>Proceedings of the 41st Annual Conference of the Cognitive Science Society.</i></p>
+                    </div>
+                </div>
+
+                <div class="year-section">
+                    <div class="year-heading">2018</div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="https://arxiv.org/pdf/1802.10217.pdf" target="_blank">Investigating human priors for playing video games</a>
+                        </p>
+                        <p class="pub-entry-authors"><b>Dubey, R.</b>, Agrawal, P., Pathak, D., Griffiths, T.L., &amp; Efros, A.A. (2018). <i>35th International Conference on Machine Learning (ICML).</i></p>
+                        <div class="pub-entry-coverage">
+                            <div class="cov-row" style="color:#000; font-size:12px;">Long oral presentation (8% acceptance rate)</div>
+                        </div>
+                    </div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="https://www.researchgate.net/profile/Rachit-Dubey/publication/338513992_Your_liking_is_my_curiosity_a_social_popularity_intervention_to_induce_curiosity/links/5e188d324585159aa4c369ce/Your-liking-is-my-curiosity-a-social-popularity-intervention-to-induce-curiosity.pdf" target="_blank">Your liking is my curiosity: A social popularity intervention to induce curiosity</a>
+                        </p>
+                        <p class="pub-entry-authors">Mehta, H.*, <b>Dubey, R.*</b>, &amp; Lombrozo, T. (2018). <i>Proceedings of the 40th Annual Conference of the Cognitive Science Society.</i></p>
+                    </div>
+                </div>
+
+                <div class="year-section">
+                    <div class="year-heading">2017</div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="https://arxiv.org/pdf/1705.04351.pdf" target="_blank">A rational analysis of curiosity</a>
+                        </p>
+                        <p class="pub-entry-authors"><b>Dubey, R.</b> &amp; Griffiths, T.L. (2017). <i>Proceedings of the 39th Annual Conference of the Cognitive Science Society.</i></p>
+                    </div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="#" target="_blank">Approaches to understanding visual illusions</a>
+                        </p>
+                        <p class="pub-entry-authors">Soon, C.S., <b>Dubey, R.</b>, Ananyev, E., &amp; Hsieh, P.J. (2017). In <i>Computational and Cognitive Neuroscience of Vision</i>. Springer.</p>
+                    </div>
+                </div>
+
+                <div class="year-section">
+                    <div class="year-heading">2015 &amp; earlier</div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="https://openaccess.thecvf.com/content_iccv_2015/papers/Dubey_What_Makes_an_ICCV_2015_paper.pdf" target="_blank">What makes an object memorable?</a>
+                        </p>
+                        <p class="pub-entry-authors"><b>Dubey, R.*</b>, Peterson, J.*, Khosla, A., Yang, M.H., &amp; Ghanem, B. (2015). <i>Proceedings of the IEEE International Conference on Computer Vision (ICCV).</i></p>
+                    </div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="https://repository.kaust.edu.sa/bitstream/handle/10754/556169/fixation_patches_accv2014.pdf?sequence=1&isAllowed=y" target="_blank">Improving saliency models by predicting human fixation patches</a>
+                        </p>
+                        <p class="pub-entry-authors"><b>Dubey, R.</b>, Dave, A., &amp; Ghanem, B. (2014). <i>Asian Conference on Computer Vision (ACCV).</i></p>
+                    </div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="https://ieeexplore.ieee.org/document/6460743/" target="_blank">Do humans fixate on interest points?</a>
+                        </p>
+                        <p class="pub-entry-authors">Dave, A.*, <b>Dubey, R.*</b>, &amp; Ghanem, B. (2012). <i>21st IEEE International Conference on Pattern Recognition (ICPR).</i></p>
+                    </div>
+                    <div class="pub-entry">
+                        <p class="pub-entry-title">
+                            <a href="https://cocosci.princeton.edu/rachit/images/FallRecog.pdf" target="_blank">A depth camera based fall recognition system for the elderly</a>
+                        </p>
+                        <p class="pub-entry-authors"><b>Dubey, R.</b>, Ni, B., &amp; Moulin, P. (2012). <i>International Conference on Image Analysis and Recognition (ICIAR).</i></p>
+                    </div>
+                </div>
+
+            </div><!-- /pub-all -->
+
+        </div><!-- /publications wrapper -->
+
+        <div id='github-link' style="font-size:80%;">
+            Thanks to Matt for the <a href='https://github.com/mdahardy/personal-website' target='_blank'>template!</a>
         </div>
-     
-        <div id = 'github-link' style = "font-size: 80%;">
-            Thanks to Matt for the <a href='https://github.com/mdahardy/personal-website' target='_blank'>
-                template!
-            </a>
-        </div>
-    </div>
+
+    </div><!-- /content -->
+
+    <script>
+        function switchPubTab(id, btn) {
+            document.querySelectorAll('.pub-tab-btn').forEach(function(b) {
+                b.classList.remove('active');
+            });
+            document.querySelectorAll('.pub-panel').forEach(function(p) {
+                p.classList.remove('active');
+            });
+            btn.classList.add('active');
+            document.getElementById('pub-' + id).classList.add('active');
+        }
+    </script>
+
 </body>
 </html>
